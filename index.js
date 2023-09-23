@@ -23,10 +23,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.send("YO mf")
-})
-
 
 app.post('/api/data', (req, res) => {
     let { numbers, timeStamp, date, user } = req.body;
@@ -94,7 +90,7 @@ app.get('/api/admin', (req, res) => {
         const latestData = dbData.data[dbData.data.length - 1];
         res.json(latestData);
     } else {
-        const dbFilePath = path.join(__dirname, 'db.json');
+        const dbFilePath = path.join(__dirname, 'data.json');
         const dbData = JSON.parse(fs.readFileSync(dbFilePath, 'utf-8'));
         res.json(dbData.data);
     }
@@ -122,4 +118,3 @@ function formatTime(timestamp) {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
