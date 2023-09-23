@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const corsOptions = {
-    origin: 'localhost:3000/api/data',
+    origin: '*",
     methods: 'GET,,POST',
     optionsSuccessStatus: 204,
 };
